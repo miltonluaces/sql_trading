@@ -1,21 +1,5 @@
 -- Miscellaneous
 
---INSERT INTO portfolio(id, name, created, modified) VALUES(0, 'total', '04-07-2019', '04-07-2019');
---UPDATE fund SET update = 'Y';
---UPDATE fund SET update = 'N' WHERE isin = 'LU0171310443';
---UPDATE operation SET type = 'B', prevsharesbuy = 0, postsharesbuy = 61.52 WHERE id=10;
-
-
-/* -- Insert Operation
-INSERT INTO operation(isinBuy, isinSell, amount, type, comission, portfolioId, status, created, modified) 
-VALUES(	'LU0267388220', 'LU0607516092', 1731.85, 'T', 0, 1, 'P', NOW(), NOW());
-*/
-
-/* --Update Operation
-UPDATE operation SET prevsharesbuy = t1.sharesbuy, postsharesbuy = round((t1.sharesbuy + amount/t1.valuebuy)*100)/100, prevsharessell = t2.sharessell, postsharessell = round((t2.sharessell - amount/t2.valuesell)*100)/100 FROM
-(SELECT f.value as valuebuy, i.shares AS sharesbuy FROM fund AS f INNER JOIN invest AS i ON f.isin = i.isin WHERE f.isin = 'LU0267388220') AS t1,
-(SELECT f.value as valuesell, i.shares AS sharessell FROM fund AS f INNER JOIN invest AS i ON f.isin = i.isin WHERE f.isin = 'LU0607516092') AS t2;
-*/
 
 --delete from performance where portfolioid=0;
 --SELECT * FROM performance ORDER by date desc;
