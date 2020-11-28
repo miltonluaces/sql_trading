@@ -8,11 +8,6 @@ select * from fund where asset='F';
 
 --SELECT date, purchase, current, diff, reldiff, volatility FROM performance;
 --delete from inv where isin = 'LU0607516092'
-/* -- Sum Investments
-SELECT size, round(sum(i.shares * purchvalue)) AS purchamount, round(sum(i.shares * f.value)) AS curramount, round(sum(i.shares * f.value - i.shares * purchvalue)) AS diffamount,  round(sum(((i.shares * f.value - i.shares * i.purchvalue)/ (i.shares * i.purchvalue))*100)) AS reldiffamount
-FROM fund AS f INNER JOIN invest AS i ON f.isin = i.isin GROUP BY size ORDER BY reldiffamount DESC; 
-*/
-
 
 
 --select sum(proportion) from fund;
@@ -28,15 +23,6 @@ ORDER BY reldiffamount DESC; $$ LANGUAGE SQL;
 
 
 
---SELECT * FROM investView() WHERE asset = 'F' ORDER BY reldiffamount desc;
-
-/*
-drop function propVolatil();
-CREATE FUNCTION propVolatil() RETURNS TABLE(name varchar, prop float, vol float, propvol float) AS $$ 
-select t1.name as name, round(t1.proportion/t2.totprop*1000)/10 as prop, t1.volatility as vol, round(t1.proportion/t2.totprop * t1.volatility*100)/100 as propvol from 
-(SELECT f.name as name, proportion, volatility FROM fund AS f INNER JOIN invest AS i ON f.isin = i.isin WHERE asset = 'F') as t1,
-(SELECT sum(proportion) as totprop FROM fund AS f INNER JOIN invest AS i ON f.isin = i.isin WHERE asset = 'F') as t2 $$ language sql;
-*/
 
 --select * from propVolatil() order by propvol desc;
 --select sum(propvol) from propVolatil()
